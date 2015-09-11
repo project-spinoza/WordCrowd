@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WordCrowd</title>
+	
+	<style>
+		.place-label:hover{
+			cursor:pointer;
+		}
+	</style>
+	<script src="../src/lib/d3.v3.min.js"></script>
+	<script src="../src/WordCrowd.js"></script>
+</head>
+<body>
+	<div id="wordCrowdContainer"></div>
+	<script>
+	var text = "Computer science is the scientific scientific scientific and practical approach to computation computation computation and its applications. It is the systematic study of the feasibility,structure, expression, and mechanization of the methodical procedures procedures procedures or algorithms that underlie the acquisition, representation,processing storage, communication communication of, and access to information, whether such information information information is encoded as bits.";
+
+	var options = {
+		container:"#wordCrowdContainer",
+		data : text,
+		width:1300,
+		height:700,
+		background :"white",
+		fontsize_range : {
+			min : 20,
+			max : 80
+		},
+		hover_color :"grey",
+		colors:"random",	
+		max_tries:700,
+		angles : [0,90], // angles should be between 0 and 360
+		font_families:[ "Arial Bold Italic", "Verdana", "Helvetica" ," Monaco, monospace" , "Bold Italic" , "Lao UI Bold" , "Bodoni MT Black Italic"]
+	};
+		
+		var wc = new WordCrowd(options);
+		
+		</script>
+	</body>	
+
+	</html>
