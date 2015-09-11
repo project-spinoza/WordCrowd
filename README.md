@@ -23,7 +23,7 @@ Usage of Wordcrowd </b>
 <b>Settings</b>
 <p>There are some default settings for WordCrowd but they can be modify as follows</p>
 * <b>container</b>
-<p>HTML Selector of the wordCrowd container element</p>
+<p>Selector of the wordCrowd container element</p>
 <p>default value  `body`</p>
 <p>`container :  "#wordCrowdContainer"`</p>
 * <b>data</b>
