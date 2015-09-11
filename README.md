@@ -27,7 +27,7 @@ Usage of Wordcrowd </b>
 <p>default value  `body`</p>
 <p>`container :  "#wordCrowdContainer"`</p>
 * <b>data</b>
-<p>The input text from which WordCrowd generate a graph.</p>
+<p>The input text from which WordCrowd generates graph.</p>
 <p>default value  `Input text data for visualization`</p>
 <p>`data:  "Input text data for visualization"`</p>
 * <b>width</b>
