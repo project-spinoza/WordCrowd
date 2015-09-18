@@ -7,7 +7,7 @@ Usage of Wordcrowd </b>
 <p>Download zip file of WordCrowd.<p>
 <b> OR </b>
 <p>Clone it using the following command. </p>
-`git clone https://github.com/bit-whacker/WordCrowd.git`
+`https://github.com/project-spinoza/WordCrowd.git`
 ## step 2:
 <p> Navigate to the examples directory and run the index.html file using browser.</p>
 
