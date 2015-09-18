@@ -9,7 +9,7 @@ Usage of Wordcrowd </b>
 <p>Clone it using the following command. </p>
 `git clone https://github.com/project-spinoza/WordCrowd.git`
 ## step 2:
-<p> Navigate to the examples directory and run the index.html file using browser.</p>
+<p> Navigate to the examples directory and run the index.html file in web browser.</p>
 
 ## step 3:
 <b>Running WordCrowd</b><br><br>
