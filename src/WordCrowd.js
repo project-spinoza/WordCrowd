@@ -194,7 +194,6 @@ var WordCrowd = function (options){
 
 		label.style("font-size", function(d){
 			var font_size = linearFontScale(d.size);
-			console.log(font_size);
 			return font_size+"px";
 		})
 		.style("fill", function(d){
