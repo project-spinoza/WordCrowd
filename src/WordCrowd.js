@@ -102,7 +102,7 @@ function Ziggurat(){
 
 function wordFrequency (stringLine) {
 	
-   stringLine = stringLine.replace(/[.,-\/#!$%\^&\*;:{}=\-_`~()]/g,"");
+   stringLine = stringLine.replace(/[.,-\/#!$%\^&\*;:{}=\-_`~()]/g," ");
    
    //. stringLine = stringLine.removeStopWords();
    words = stringLine.split(/\s/);
@@ -133,16 +133,16 @@ var WordCrowd = function (options){
 		width:800,
 		fontsize_range : {
 			min : 14,
-			max : 40
+			max : 36
 		},
 		hover_color :'grey',
 		height:600,
-		max_tries:700,
+		max_tries:100,
 		max_rotate_size:30,
 		angles : [0,90], // angles should be between 0 and 360
 		colors:'random',
 		background :'white',
-		font_families:[ 'Arial Bold Italic', 'Verdana', 'Helvetica', 'Monaco', 'monospace' , 'Bold Italic', 'Lao UI Bold' , 'Bodoni MT Black Italic'],
+		font_families:[ "Verdana", "Arial"]
 			
 	};
 	
