@@ -1,5 +1,5 @@
 # Word Crowd
-This is a <a href="http://wordcram.org/">WordCram</a>-inspired word cloud layout written in JavaScript.
+This is a <a href="http://wordcram.org/">WordCram</a>-inspired WordCrowd layout written in JavaScript.
 
 Usage of Wordcrowd </b>
 
