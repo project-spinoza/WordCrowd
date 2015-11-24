@@ -5,7 +5,7 @@ This is a <a href="http://wordcram.org/">WordCram</a>-inspired WordCrowd layout 
 <p>Download zip or clone it using the following command.</p>
 `git clone https://github.com/project-spinoza/WordCrowd.git`
 
-<p> Navigate to the examples directory and run the index.html file in web browser.</p>
+<p> Navigate to the examples directory and run the `index.html` file in web browser.</p>
 
 ## Running WordCrowd:
 
