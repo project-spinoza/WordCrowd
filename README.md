@@ -1,26 +1,21 @@
 # Word Crowd
 This is a <a href="http://wordcram.org/">WordCram</a>-inspired WordCrowd layout written in JavaScript.
-
-Usage of Wordcrowd </b>
-
-## step 1: 
-<p>Download zip file of WordCrowd.<p>
-<b> OR </b>
-<p>Clone it using the following command. </p>
+<br>
+## USAGE: 
+<p>Download zip or clone it using the following command.<p>
 `git clone https://github.com/project-spinoza/WordCrowd.git`
-## step 2:
+
 <p> Navigate to the examples directory and run the index.html file in web browser.</p>
 
-## step 3:
-<b>Running WordCrowd</b><br><br>
+## Running WordCrowd:
+
 `var settings = {`<br>
        `"container":"body",`<br>
        `"data":"Input text data for visualization"`<br>
      `};`
 <br>
 `var wordCrowd = new WordCrowd(settings);`
-## step 4:
-<b>Settings</b>
+## Settings:
 <p>There are some default settings for WordCrowd but they can be modify as follows</p>
 * <b>container</b>
 <p>Selector of the wordCrowd container element</p>
