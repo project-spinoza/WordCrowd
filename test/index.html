@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WordCrowd</title>
+	
+	<style>
+	.place-label:hover{
+		cursor:pointer;
+	}
+	</style>
+	<script src="../src/lib/d3.v3.min.js"></script>
+	<script src="../src/WordCrowd.js"></script>
+	<link rel="shortcut icon" type="image/png" href="../src/lib/jasmine_favicon.png">
+	<link rel="stylesheet" type="text/css" href="../src/lib/jasmine.css">
+
+	<script type="text/javascript" src="../src/lib/jasmine.js"></script>
+	<script type="text/javascript" src="../src/lib/jasmine-html.js"></script>
+	<script type="text/javascript" src="../src/lib/boot.js"></script>
+</head>
+<body>
+	<div id="wordCrowdContainer"></div>
+	<script>
+	
+	describe('Test WordCrowd with jasmine ', function() {
+		var text,
+		options,
+		firstWord,
+		secondWord,
+		wc;
+		
+		beforeEach(function() {
+			text = "Computer  science is the scientific scientific scientific and practical approach to computation computation computation and its applications. ";
+
+			options = {
+				container:"#wordCrowdContainer",
+				data : text,
+				width:1300,
+				height:700,
+				background :"white",
+				fontsize_range : {
+					min : 14,
+					max : 40
+				},
+				hover_color :"grey",
+				colors:"black",	
+				max_tries:700,
+				angles : [0,90], // angles should be between 0 and 360
+				font_families:[ "Arial Bold Italic"]
+	       };
+	
+		///////
+		wc = new WordCrowd(options);
+		firstWord = { 
+			bottom: 326.0458068847656, 
+			height: 15.546875953674316,
+			left: 1204.9638671875,
+			right: 1226.0732421875,
+			top: 310.4989318847656,
+			width: 21.10934829711914,
+			text:"first word"
+		};
+		secondWord = { 
+			bottom: 326.0458068847656, 
+			height: 15.546875953674316,
+			left: 1204.9638671875,
+			right: 1226.0732421875,
+			top: 310.4989318847656,
+			width: 21.10934829711914,
+			text:"second word"
+		};
+
+
+	});
+
+		afterEach(function() {
+			d3.select("svg").remove();
+		});
+
+		describe('WordCrowd Unit Testing' ,function() {
+			it('Height Of The Svg', function() {
+				expect(d3.select("svg").attr('height')).toBe("700");
+			});
+
+			it('Width Of The Svg', function() {
+				expect(d3.select("svg").attr('width')).toBe("1300");
+			});
+			it('Testing Collision Function', function() {
+
+				expect(wc.collide(firstWord,secondWord)).toBe(true);
+			});
+			it('Testing x and y cordinates', function() {
+				word = { 
+					bottom: 326.0458068847656, 
+					height:1,
+					left: 1204.9638671875,
+					right: 1226.0732421875,
+					top: 310.4989318847656,
+					width: 1,
+					word:"computer"
+				};
+				var Ziggurat = jasmine.createSpyObj('Ziggurat', [ 'nextGaussian', 'method2' ]);
+				Ziggurat.nextGaussian.and.callFake(function() {
+					return 0.8794932476027818;
+				});
+			 	var isFirefox = typeof InstallTrigger !== 'undefined';   // Firefox 1.0+
+			 	var expected;
+			 	if(isFirefox){
+			 		expected = [ 839, 384 ] ;
+			 	}else{
+			 		expected = [ 840, 386  ];
+			 	}
+			 	result = wc.getNextCoordinates(d3.select(".place-label")[0][0], Ziggurat);
+			 	result[0]=  Math.floor( result[0] );
+			 	result[1]=  Math.floor( result[1] );
+			 	expect(result).toEqual(expected);
+			 });
+		});
+
+
+
+});
+
+
+</script>
+</body>	
+
+</html>

@@ -243,9 +243,9 @@ var WordCrowd = function (options){
 		return color;
 	};
 
-	self.getNextCoordinates = function(word){
+	self.getNextCoordinates = function(word, z){
 
-		var z = new Ziggurat();
+		
 
 		var a = word.getBoundingClientRect();
 
@@ -279,11 +279,11 @@ var WordCrowd = function (options){
 		return COLLIDED;
 	};
 	self.move = function(word){
-		var gaussians = self.getNextCoordinates(word);
+		var gaussians = self.getNextCoordinates(word,new Ziggurat());
 		//. check if the word is drawn out of the container
 		var right_pos = settings.width - (word.getBoundingClientRect().width + 12);
 		while(gaussians[0] < 12 || gaussians[0] > right_pos){
-			gaussians = self.getNextCoordinates(word);
+			gaussians = self.getNextCoordinates(word,new Ziggurat());
 		}
 		
 		var to = d3.transform(d3.select(word).attr("transform"));
