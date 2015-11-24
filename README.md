@@ -1,5 +1,5 @@
-# WordCrowd
-A javaScript implementation of WordCram
+# Word Crowd
+This is a [http://wordcram.org/ | WordCram]-inspired word cloud layout written in JavaScript.
 
 Usage of Wordcrowd </b>
 
