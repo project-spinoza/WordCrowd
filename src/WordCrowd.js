@@ -636,7 +636,6 @@ var WordCrowd = function (options){
 		settings.data = settings.data.removeStopWords();
 		
 	}
-	console.log( settings.data);
 	settings.data = wordFrequency(settings.data);
 	
 	self.init = function(options){
