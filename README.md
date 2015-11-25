@@ -1,7 +1,7 @@
 # Word Crowd
 This is a <a href="http://wordcram.org/">WordCram</a>-inspired WordCrowd layout written in JavaScript.
 <br>
-<div style="text-align:center"><img src="images/WordCrowd.png" width="800px"></div>
+![WordCrowd screenshot](images/WordCrowd.png)
 ## USAGE: 
 <p>Download zip or clone it using the following command.</p>
 `git clone https://github.com/project-spinoza/WordCrowd.git`
