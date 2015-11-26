@@ -7,14 +7,14 @@ This file is part of WordCrowd.
 */
 
 /*********************Stop words*************************************/
-String.prototype.removeStopWords = function() {
+function removeStopWords(text) {
 	var x;
 	var y;
 	var word;
 	var stop_word;
 	var regex_str;
 	var regex;
-	var cleansed_string = this.valueOf();
+	var cleansed_string = text;
 	
 	var stop_words = new Array(
 		
@@ -596,6 +596,7 @@ var WordCrowd = function (options){
 	var svg,
 	defaultcolor,
 	linearFontScale,
+	stopwords,
 	self = this;
 	
 	var settings = {
@@ -632,9 +633,7 @@ var WordCrowd = function (options){
 	}
 	if(settings.stopwordsRemove)
 	{
-		
-		settings.data = settings.data.removeStopWords();
-		
+		settings.data = removeStopWords(settings.data);	
 	}
 	settings.data = wordFrequency(settings.data);
 	
