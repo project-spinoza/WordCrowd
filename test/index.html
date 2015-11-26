@@ -29,7 +29,7 @@
 		wc;
 		
 		beforeEach(function() {
-			text = "Computer  science is the scientific scientific scientific and practical approach to computation computation computation and its applications. ";
+			text = "Computer science is the scientific and practical approach to computation and its applications.";
 
 			options = {
 				container:"#wordCrowdContainer",
@@ -46,8 +46,8 @@
 				max_tries:700,
 				angles : [0,90], // angles should be between 0 and 360
 				font_families:[ "Arial Bold Italic"]
-	       };
-	
+			};
+
 		///////
 		wc = new WordCrowd(options);
 		firstWord = { 
@@ -107,13 +107,26 @@
 			 	if(isFirefox){
 			 		expected = [ 839, 384 ] ;
 			 	}else{
-			 		expected = [ 840, 386  ];
+			 		expected = [ 841, 386  ];
 			 	}
 			 	result = wc.getNextCoordinates(d3.select(".place-label")[0][0], Ziggurat);
 			 	result[0]=  Math.floor( result[0] );
 			 	result[1]=  Math.floor( result[1] );
 			 	expect(result).toEqual(expected);
 			 });
+
+			it('Testing Stop Words Function', function() {
+				expected = "Computer science scientific practical approach computation applications.";
+				expect(removeStopWords(text)).toBe(expected);
+			});
+			it('Testing WordFrequency Function', function() {
+				wordFrequency_input = "this is some string";
+				wordFrequency_expected = [ {"word":"this" , "size":1},
+				{"word":"is" , "size":1},
+				{"word":"some" , "size":1},
+				{"word":"string" , "size":1}];
+				expect(wordFrequency(wordFrequency_input)).toEqual(wordFrequency_expected);
+			});
 		});
 
 
