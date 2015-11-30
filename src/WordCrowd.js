@@ -228,7 +228,7 @@ var WordCrowd = function (options){
 		
 	}
 
-	if(settings.stopwordsRemove && ((settings.readFromFile.fileLocation != false || settings.readFromFile.type != "json")|| (settings.readFromFile.fileLocation == false )))
+	if(settings.stopwordsRemove && ((settings.readFromFile.fileLocation != false && settings.readFromFile.type == "text")|| (settings.readFromFile.fileLocation == false )))
 	{
 		settings.data = removeStopWords(settings.data);	
 	}
@@ -238,7 +238,6 @@ var WordCrowd = function (options){
 		settings.data =JSON.parse(settings.data);
 	}
 	
-	console.log(settings.data);
 	self.init = function(options){
 		
 		linearFontScale = d3.scale.linear()
