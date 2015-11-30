@@ -5,7 +5,26 @@ File : WordCrowd
 This file is part of WordCrowd.
 
 */
-
+/**********************File Reading***********************************/
+ function readTextFile(file)
+{
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    var allText;
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+               allText = rawFile.responseText;
+               
+            }
+        }
+    }
+    rawFile.send(null);
+    return allText;
+}
 /*********************Stop words*************************************/
 function removeStopWords(text) {
 	var x;
@@ -183,7 +202,11 @@ var WordCrowd = function (options){
 		angles : [0,90], // angles should be between 0 and 360
 		colors:'random',
 		background :'white',
-		font_families:[ "Verdana", "Arial"]
+		font_families:[ "Verdana", "Arial"],
+		 readFromFile:{
+	   	              type:"text",
+	   	              fileLocation:false
+	   }
 		
 	};
 	
@@ -199,12 +222,23 @@ var WordCrowd = function (options){
 			}
 		}
 	}
-	if(settings.stopwordsRemove)
+	
+	if(settings.readFromFile.fileLocation != false){
+		settings.data = readTextFile(settings.readFromFile.fileLocation);
+		
+	}
+
+	if(settings.stopwordsRemove && ((settings.readFromFile.fileLocation != false || settings.readFromFile.type != "json")|| (settings.readFromFile.fileLocation == false )))
 	{
 		settings.data = removeStopWords(settings.data);	
 	}
-	settings.data = wordFrequency(settings.data);
+     if(settings.readFromFile.fileLocation == false || settings.readFromFile.type == "text"){
+		settings.data = wordFrequency(settings.data);
+	}else{
+		settings.data =JSON.parse(settings.data);
+	}
 	
+	console.log(settings.data);
 	self.init = function(options){
 		
 		linearFontScale = d3.scale.linear()

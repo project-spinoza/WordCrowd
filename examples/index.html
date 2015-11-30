@@ -31,7 +31,11 @@
 		colors:"#aaa",
 	    max_tries:20, // number of tries to place the word
 	    angles : [0,90], // angles should be between 0 and 360
-	   font_families:["Verdana", "Arial"]
+	   font_families:["Verdana", "Arial"],
+	   readFromFile:{
+	   	              type:"text",
+	   	              fileLocation:"data.txt"
+	   }
 	};
 
 var wc = new WordCrowd(options);
