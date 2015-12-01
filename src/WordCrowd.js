@@ -199,8 +199,8 @@ var WordCrowd = function (options){
 		hover_color :'black',
 		max_tries:20,
 		angles : [0,90], // angles should be between 0 and 360
-		colors:'random',
-		background :'#aaa',
+		colors:'#aaa',
+		background :'white',
 		font_families:[ "Verdana", "Arial"],
 		readFromFile:{
 	   	              type:"text",
