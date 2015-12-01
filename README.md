@@ -3,6 +3,7 @@ This is a <a href="http://wordcram.org/">WordCram</a>-inspired WordCrowd layout 
 <br>
 ![WordCrowd screenshot](images/WordCrowd.png)
 <br>
+<hr>
 ![WordCrowd screenshot](images/wc_colored.jpg)
 ## USAGE: 
 <p>Download zip or clone it using the following command.</p>
