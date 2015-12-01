@@ -191,19 +191,18 @@ var WordCrowd = function (options){
 		data : 'Computer science is the scientific and practical approach to computation and its applications. It is the systematic study of the feasibility,structure, expression, and mechanization of the methodical procedures or algorithms that underlie the acquisition, representation,processing storage, communication of, and access to information, whether such information is encoded as bits.',
 		stopwordsRemove:false,
 		width:800,
+	        height:600,
 		fontsize_range : {
-			min : 14,
+			min : 10,
 			max : 36
 		},
-		hover_color :'grey',
-		height:600,
-		max_tries:100,
-		max_rotate_size:30,
+		hover_color :'black',
+		max_tries:20,
 		angles : [0,90], // angles should be between 0 and 360
 		colors:'random',
-		background :'white',
+		background :'#aaa',
 		font_families:[ "Verdana", "Arial"],
-		 readFromFile:{
+		readFromFile:{
 	   	              type:"text",
 	   	              fileLocation:false
 	   }
