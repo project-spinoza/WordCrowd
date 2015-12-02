@@ -4,7 +4,7 @@ This is a <a href="http://wordcram.org/">WordCram</a>-inspired WordCrowd layout 
 ![WordCrowd screenshot](images/WordCrowd.png)
 <br>
 <hr>
-![WordCrowd screenshot](images/Capture.jpg)
+![WordCrowd screenshot](images/Capture.JPG)
 ## USAGE: 
 <p>Download zip or clone it using the following command.</p>
 `git clone https://github.com/project-spinoza/WordCrowd.git`
