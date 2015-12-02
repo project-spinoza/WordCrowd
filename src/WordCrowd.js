@@ -6,24 +6,24 @@ This file is part of WordCrowd.
 
 */
 /**********************File Reading***********************************/
- function readTextFile(file)
+function readTextFile(file)
 {
-    var rawFile = new XMLHttpRequest();
-    rawFile.open("GET", file, false);
-    var allText;
-    rawFile.onreadystatechange = function ()
-    {
-        if(rawFile.readyState === 4)
-        {
-            if(rawFile.status === 200 || rawFile.status == 0)
-            {
-               allText = rawFile.responseText;
-               
-            }
-        }
-    }
-    rawFile.send(null);
-    return allText;
+	var rawFile = new XMLHttpRequest();
+	rawFile.open("GET", file, false);
+	var allText;
+	rawFile.onreadystatechange = function ()
+	{
+		if(rawFile.readyState === 4)
+		{
+			if(rawFile.status === 200 || rawFile.status == 0)
+			{
+				allText = rawFile.responseText;
+
+			}
+		}
+	}
+	rawFile.send(null);
+	return allText;
 }
 /*********************Stop words*************************************/
 function removeStopWords(text) {
@@ -163,26 +163,28 @@ function wordFrequency (stringLine) {
 	stringLine = stringLine.replace(/[.,-\/#!$%\^&\*;:{}=\-_`~()]/g," ");
 	
    //. stringLine = stringLine.removeStopWords();
-   words = stringLine.split(/\s/);
+   words = stringLine.trim().split(/[\s]+/);
    freqMap = {};
    data = [];
    words.forEach(function(w) {
+
    	if (!freqMap[w]) {
    		freqMap[w] = 0;
    	}
    	freqMap[w] += 1;
+
    });
    for (var key in freqMap) {
-		//console.log("key : "+ key + ", value :" + freqMap[key]);
-		data.push({"word":key , "size":freqMap[key]});
-	}
-	return data;
+   	data.push({"word":key , "size":freqMap[key]});
+   }
+   return data;
 }
 
 var WordCrowd = function (options){
 	var svg,
 	defaultcolor,
 	linearFontScale,
+	linearCollissionScale,
 	stopwords,
 	self = this;
 	
@@ -191,22 +193,25 @@ var WordCrowd = function (options){
 		data : 'Computer science is the scientific and practical approach to computation and its applications. It is the systematic study of the feasibility,structure, expression, and mechanization of the methodical procedures or algorithms that underlie the acquisition, representation,processing storage, communication of, and access to information, whether such information is encoded as bits.',
 		stopwordsRemove:false,
 		width:800,
+		height:600,
 		fontsize_range : {
-			min : 14,
+			min : 12,
 			max : 36
 		},
-		hover_color :'grey',
-		height:600,
-		max_tries:100,
-		max_rotate_size:30,
+		hover_color :'black',
+		
+		collision:{
+			min:500,
+			max:1000
+		},
 		angles : [0,90], // angles should be between 0 and 360
 		colors:'random',
 		background :'white',
 		font_families:[ "Verdana", "Arial"],
-		 readFromFile:{
-	   	              type:"text",
-	   	              fileLocation:false
-	   }
+		readFromFile:{
+			type:"text",
+			fileLocation:false
+		}
 		
 	};
 	
@@ -232,17 +237,27 @@ var WordCrowd = function (options){
 	{
 		settings.data = removeStopWords(settings.data);	
 	}
-     if(settings.readFromFile.fileLocation == false || settings.readFromFile.type == "text"){
+	if(settings.readFromFile.fileLocation == false || settings.readFromFile.type == "text"){
 		settings.data = wordFrequency(settings.data);
 	}else{
 		settings.data =JSON.parse(settings.data);
 	}
 	
 	self.init = function(options){
-		
+		var minWeight = d3.min(settings.data, function (d) {
+			return d.size;
+		});
+
+		var maxWeight = d3.max(settings.data, function (d) {
+			return d.size;
+		});
 		linearFontScale = d3.scale.linear()
-		.domain([1, 10])
+		.domain([minWeight, maxWeight])
 		.range([settings.fontsize_range.min, settings.fontsize_range.max]);
+
+		linearCollissionScale = d3.scale.linear()
+		.domain([minWeight, maxWeight])
+		.range([settings.collision.min, settings.collision.max]);
 		
 		svg = d3.select(settings.container)
 		.append("svg")
@@ -285,9 +300,10 @@ var WordCrowd = function (options){
 		.each(function(d, i){
 
 			self.move(this);
-			var tried = 0;
+			var tried = settings.collision.min;
+			var maxCollision = linearCollissionScale(d.size);
 			while(self.is_collide(this)){
-				if(tried > settings.max_tries){
+				if(tried > maxCollision){
 					this.remove();
 					break;
 				}
@@ -375,14 +391,7 @@ var WordCrowd = function (options){
 			(a.left > (b.left + b.width))
 			);  
 	};
-	
-	self.normalizeFontSize = function(font_size){
-		if(font_size < settings.fontsize_range.min){
-			font_size = settings.fontsize_range.min;
-		}else if(font_size > settings.fontsize_range.max){
-			font_size = settings.fontsize_range.max;
-		}
-	}
+
 	//. initialize WordCrowd
 	self.init();
 
