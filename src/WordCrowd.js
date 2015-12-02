@@ -203,6 +203,7 @@ var settings = {
 			min:500,
 			max:1000
 		},
+		sortDescending : false,
 		angles : [0,90], // angles should be between 0 and 360
 		colors:'#aaa',
 		background :'white',
@@ -240,7 +241,11 @@ var settings = {
 	}else{
 		settings.data =JSON.parse(settings.data);
 	}
-	
+	if(settings.sortDescending){
+		settings.data = settings.data.sort(function(a, b){ return d3.descending(a.size, b.size); });
+	}
+
+
 	self.init = function(options){
 		var minWeight = d3.min(settings.data, function (d) {
 			return d.size;
