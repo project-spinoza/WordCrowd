@@ -29,6 +29,8 @@ This is a <a href="http://wordcram.org/">WordCram</a>-inspired WordCrowd layout 
 <p>The input text from which WordCrowd generates graph.</p>
 <p>default value  `Input text data for visualization`</p>
 <p>`data:  "Input text data for visualization"`</p>
+<p>We can also give json data for generating graphs.</p>
+<p>`json data:  "[{word:'first word', size:12},{word:'second word', size:10}]"`</p>
 * <b>width</b>
 <p>Width of WordCrowd container.</p>
 <p>default value  `800`</p>
