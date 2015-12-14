@@ -8,15 +8,12 @@ This is a <a href="http://wordcram.org/">WordCram</a>-inspired WordCrowd layout 
 ## USAGE: 
 <p>Download zip or clone it using the following command.</p>
 `git clone https://github.com/project-spinoza/WordCrowd.git`
-
 <p> Navigate to the examples directory and run the index.html file in web browser. </p>
-
 ## Running WordCrowd:
-
 `var settings = {`<br>
-       `"container":"body",`<br>
-       `"data":"Input text data for visualization"`<br>
-     `};`
+`"container":"body",`<br>
+`"data":"Input text data for visualization"`<br>
+`};`
 <br>
 `var wordCrowd = new WordCrowd(settings);`
 ## Settings:
@@ -59,18 +56,18 @@ This is a <a href="http://wordcram.org/">WordCram</a>-inspired WordCrowd layout 
 <p> Custom color can be assigned to  wordcrowd.</p>
 <p>To color black each word in cloud:`colors:"#000000" ` </p>
 * <b>collision</b>
-  <p>number of iterations before a word is placed in specified container.</p>
-
+<p>number of iterations before a word is placed in specified container.</p>
 <p>'min' Minimum number of iterations.</p>
 <p>'max' Maximum number of iterations.</p>
 <p>default value `min:500,max:1000`</p>
 <p>`collision:{
-			min:500,
-			max:1000
-		}` </p>
+   min:500,
+   max:1000
+   }` 
+</p>
 * <b>sortDescending</b>
-  <p>specify the order in which words will be arranged in container based on their relative frequencies.</p>
-  <p>default value `sortDescending:false`</p>
+<p>specify the order in which words will be arranged in container based on their relative frequencies.</p>
+<p>default value `sortDescending:false`</p>
 * <b>angles</b> 
 <p>list of angles each word can take to rotate. Each angle must be between 0 and 360.</p>
 <p>default value `[0,90] `</p>
@@ -83,16 +80,17 @@ This is a <a href="http://wordcram.org/">WordCram</a>-inspired WordCrowd layout 
 <p>path to external data file.</p>
 <p>data format must be specified in settings options.</p>
 <p>json format: `readFromFile:{
-	    	type:"json",
-	    	fileLocation:'json file location'
-	    }`</p>
+   type:"json",
+   fileLocation:'json file location'
+   }`
+</p>
 <p>text format: `readFromFile:{
-	    	type:"text",
-	    	fileLocation:'text file location'
-	    }`</p>
+   type:"text",
+   fileLocation:'text file location'
+   }`
+</p>
 <p>default value `readFromFile:{
-	    	type:"text",
-	    	fileLocation:false
-	    }`</p>
-
-
+   type:"text",
+   fileLocation:false
+   }`
+</p>
