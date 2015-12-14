@@ -49,8 +49,8 @@ This is a <a href="http://wordcram.org/">WordCram</a>-inspired WordCrowd layout 
 <p>`fontsize_range : { min : 12, max : 36 }` </p>
 * <b>hover_color</b>
 <p>Mouse hover color of words in Wordcrowd.</p>
-<p>default value `"grey"`</p>
-<p>`hover_color :"grey"` </p>
+<p>default value `"#000000"`</p>
+<p>`hover_color :"#000000"` </p>
 * <b>colors</b>
 <p>Words color. 'random' refers to a function that randomly give colors to words.</p>
 <p>default value `"random"`</p>
@@ -62,7 +62,10 @@ This is a <a href="http://wordcram.org/">WordCram</a>-inspired WordCrowd layout 
 <p>'min'Minimum number of replace tries of a word to avoid collision.</p>
 <p>'max'Maximum number of replace tries of a word to avoid collision.</p>
 <p>default value `min:500,max:1000`</p>
-<p>`max_tries:700` </p>
+<p>`collision:{
+			min:500,
+			max:1000
+		}` </p>
 * <b>angles</b> 
 <p>Array of angles to which words rotates. angles should be between 0 and 360.</p>
 <p>default value `[0,90] `</p>
