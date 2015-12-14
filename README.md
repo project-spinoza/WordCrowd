@@ -45,8 +45,8 @@ This is a <a href="http://wordcram.org/">WordCram</a>-inspired WordCrowd layout 
 <p>`background :"white"` </p>
 * <b>fontsize_range</b>
 <p>The sizes of words. words of higher frequency get maximum font-size and lower frequency get minimum font-size. </p>
-<p>default value `{ min : 20, max : 80 } `</p>
-<p>`fontsize_range : { min : 20, max : 80 }` </p>
+<p>default value `{ min : 12, max : 36 } `</p>
+<p>`fontsize_range : { min : 12, max : 36 }` </p>
 * <b>hover_color</b>
 <p>Mouse hover color of words in Wordcrowd.</p>
 <p>default value `"grey"`</p>
@@ -55,9 +55,13 @@ This is a <a href="http://wordcram.org/">WordCram</a>-inspired WordCrowd layout 
 <p>Words color. 'random' refers to a function that randomly give colors to words.</p>
 <p>default value `"random"`</p>
 <p>`colors:"random" ` </p>
-* <b>max_tries</b>
+<p>we can also give specific color for all text </p>
+<p>`colors:"#000000" ` </p>
+* <b>collision</b>
 <p>Maximum number of replace tries of a word to avoid collision.</p>
-<p>default value `700`</p>
+<p>'min'Minimum number of replace tries of a word to avoid collision.</p>
+<p>'max'Maximum number of replace tries of a word to avoid collision.</p>
+<p>default value `min:500,max:1000`</p>
 <p>`max_tries:700` </p>
 * <b>angles</b> 
 <p>Array of angles to which words rotates. angles should be between 0 and 360.</p>
@@ -65,6 +69,6 @@ This is a <a href="http://wordcram.org/">WordCram</a>-inspired WordCrowd layout 
 <p>`angles : [0,90] `</p>
 * <b>font_families</b>
 <p>Array of font families which will assign to words randomly.</p>
-<p>default value `[ "Arial Bold Italic", "Verdana", "Helvetica" ," Monaco", "monospace"]`</p>
-<p>`font_families:[ "Arial Bold Italic", "Verdana", "Helvetica" ," Monaco", "monospace"]`</p>
+<p>default value `[ "Verdana", "Arial"]`</p>
+<p>`font_families:[ "Verdana", "Arial"]`</p>
 
