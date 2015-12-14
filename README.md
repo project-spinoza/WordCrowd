@@ -20,16 +20,16 @@ This is a <a href="http://wordcram.org/">WordCram</a>-inspired WordCrowd layout 
 <br>
 `var wordCrowd = new WordCrowd(settings);`
 ## Settings:
-<p>There are some default settings for WordCrowd but they can be modify as follows</p>
+<p>Global setting for wordcrowd container.</p>
 * <b>container</b>
 <p>Selector of the wordCrowd container element</p>
 <p>default value  `body`</p>
 <p>`container :  "#wordCrowdContainer"`</p>
 * <b>data</b>
-<p>The input text from which WordCrowd generates graph.</p>
+<p> input text  which WordCrowd will generate graph.</p>
 <p>default value  `Input text data for visualization`</p>
 <p>`data:  "Input text data for visualization"`</p>
-<p>We can also give json data for generating graphs.</p>
+<p>Data can also be given in the form of json.</p>
 <p>`data:  "[{word:'first word', size:12},{word:'second word', size:10}]"`</p>
 * <b>width</b>
 <p>Width of WordCrowd container.</p>
@@ -44,31 +44,32 @@ This is a <a href="http://wordcram.org/">WordCram</a>-inspired WordCrowd layout 
 <p>default value `"white" `</p>
 <p>`background :"white"` </p>
 * <b>fontsize_range</b>
-<p>size of words in proportional to their relative frequency. words with high relative frequency get larger font size compared to those with lower relative frequency. </p>
+<p>Sizes of words in proportional to their relative frequencies. Words with high relative frequency will  get larger font_size compared to those with lower relative frequencies. </p>
 <p>default value `{ min : 12, max : 36 } `</p>
 <p>`fontsize_range : { min : 12, max : 36 }` </p>
 * <b>hover_color</b>
-<p>hover color of words in Wordcrowd.</p>
+<p>Words color on hover.</p>
 <p>default value `"#000000"`</p>
 <p>`hover_color :"#000000"` </p>
 * <b>colors</b>
+<p>Wordcrowd words color</p>
 <p>"random" will assign random color to each word.</p>
 <p>default value `"random"`</p>
 <p>`colors:"random" ` </p>
-<p> Specified color can be assigned to each word like "#000" will assign each word black color.</p>
+<p> Custom color can be assigned to  wordcrowd.</p>
 <p>To color black each word in cloud:`colors:"#000000" ` </p>
 * <b>collision</b>
   <p>number of iterations before a word is placed in specified container.</p>
 
-<p>'min'Minimum number of iterations before a word is placed in specified container.</p>
-<p>'max'Maximum number of iterations before a word is placed in specified container.</p>
+<p>'min' Minimum number of iterations.</p>
+<p>'max' Maximum number of iterations.</p>
 <p>default value `min:500,max:1000`</p>
 <p>`collision:{
 			min:500,
 			max:1000
 		}` </p>
 * <b>sortDescending</b>
-  <p>specify the order in which words will be arranged in container based on their relative frequency.</p>
+  <p>specify the order in which words will be arranged in container based on their relative frequencies.</p>
   <p>default value `sortDescending:false`</p>
 * <b>angles</b> 
 <p>list of angles each word can take to rotate. Each angle must be between 0 and 360.</p>
@@ -80,7 +81,7 @@ This is a <a href="http://wordcram.org/">WordCram</a>-inspired WordCrowd layout 
 <p>`font_families:[ "Verdana", "Arial"]`</p>
 * <b>readFromFile</b>
 <p>path to external data file.</p>
-<p>data format must be specified in configuration options.</p>
+<p>data format must be specified in settings options.</p>
 <p>json format: `readFromFile:{
 	    	type:"json",
 	    	fileLocation:'json file location'
