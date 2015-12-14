@@ -87,6 +87,5 @@ This is a <a href="http://wordcram.org/">WordCram</a>-inspired WordCrowd layout 
 	    	type:"text",
 	    	fileLocation:false
 	    }`</p>
-<p>default value `[ "Verdana", "Arial"]`</p>
-<p>`font_families:[ "Verdana", "Arial"]`</p>
+
 
