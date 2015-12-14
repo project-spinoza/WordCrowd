@@ -67,7 +67,7 @@ This is a <a href="http://wordcram.org/">WordCram</a>-inspired WordCrowd layout 
 			max:1000
 		}` </p>
 * <b>sortDescending</b>
-  <p>sortDescending is use to sort our data descendingly.we can enable this by making sortDescending : true</p>
+  <p>sortDescending is use to sort our data descendingly.we can enable this by making  `sortDescending:true`</p>
   <p>default value `sortDescending:false`</p>
 * <b>angles</b> 
 <p>Array of angles to which words rotates. angles should be between 0 and 360.</p>
@@ -75,6 +75,18 @@ This is a <a href="http://wordcram.org/">WordCram</a>-inspired WordCrowd layout 
 <p>`angles : [0,90] `</p>
 * <b>font_families</b>
 <p>Array of font families which will assign to words randomly.</p>
+<p>default value `[ "Verdana", "Arial"]`</p>
+<p>`font_families:[ "Verdana", "Arial"]`</p>
+* <b>readFromFile</b>
+<p>we can also give our data from file by giving the path of the file.</p>
+<p>we can give text and json file by specifing the `type:text` or `type:json` option in `readFromFile:{
+	    	type:"text",
+	    	fileLocation:false
+	    }` and the n giving the path of the file in `fileLocation:"your file path"`</p>
+<p>default value `readFromFile:{
+	    	type:"text",
+	    	fileLocation:false
+	    }`</p>
 <p>default value `[ "Verdana", "Arial"]`</p>
 <p>`font_families:[ "Verdana", "Arial"]`</p>
 
