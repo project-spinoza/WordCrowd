@@ -66,6 +66,9 @@ This is a <a href="http://wordcram.org/">WordCram</a>-inspired WordCrowd layout 
 			min:500,
 			max:1000
 		}` </p>
+* <b>sortDescending</b>
+  <p>sortDescending is use to sort our data descendingly.we can enable this by making sortDescending : true</p>
+  <p>default value `sortDescending:false`</p>
 * <b>angles</b> 
 <p>Array of angles to which words rotates. angles should be between 0 and 360.</p>
 <p>default value `[0,90] `</p>
