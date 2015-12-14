@@ -68,7 +68,7 @@ This is a <a href="http://wordcram.org/">WordCram</a>-inspired WordCrowd layout 
 			max:1000
 		}` </p>
 * <b>sortDescending</b>
-  <p>specifies the order in which words will be arranged in container based on their relative frequency.</p>
+  <p>specify the order in which words will be arranged in container based on their relative frequency.</p>
   <p>default value `sortDescending:false`</p>
 * <b>angles</b> 
 <p>list of angles each word can take to rotate. Each angle must be between 0 and 360.</p>
