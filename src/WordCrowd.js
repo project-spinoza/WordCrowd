@@ -25,6 +25,27 @@ function readTextFile(file)
 	rawFile.send(null);
 	return allText;
 }
+/*********************Checking Data Type ****************************/
+function dataType(object) {
+	if (object === null) {
+		return "null";
+	}
+	else if (object === undefined) {
+		return "undefined";
+	}
+	else if (object.constructor ===  "test".constructor) {
+		return "String";
+	}
+	else if (object.constructor === [].constructor) {
+		return "Array";
+	}
+	else if (object.constructor === {}.constructor) {
+		return "Object";
+	}
+	else {
+		return null;
+	}
+}
 /*********************Stop words*************************************/
 function removeStopWords(text) {
 	var x;
@@ -188,7 +209,7 @@ var WordCrowd = function (options){
 	stopwords,
 	self = this;
 	
-var settings = {
+	var settings = {
 		container:'body',
 		data : 'Computer science is the scientific and practical approach to computation and its applications. It is the systematic study of the feasibility,structure, expression, and mechanization of the methodical procedures or algorithms that underlie the acquisition, representation,processing storage, communication of, and access to information, whether such information is encoded as bits.',
 		stopwordsRemove:false,
@@ -214,9 +235,10 @@ var settings = {
 		}	
 	};
 	
-	if(!options.data.trim()){
-		options.data = settings.data;
-	} 
+	
+	// if(!options.data){
+	// 	options.data = settings.data;
+	// } 
 	
 	//. override default settings...
 	if (typeof options != 'undefined') {
@@ -227,17 +249,20 @@ var settings = {
 		}
 	}
 	
+	
 	if(settings.readFromFile.fileLocation != false){
 		settings.data = readTextFile(settings.readFromFile.fileLocation);
 		
 	}
 
-	if(settings.stopwordsRemove && ((settings.readFromFile.fileLocation != false && settings.readFromFile.type == "text")|| (settings.readFromFile.fileLocation == false )))
-	{
+	if(settings.stopwordsRemove && ((settings.readFromFile.fileLocation != false && settings.readFromFile.type == "text")|| (settings.readFromFile.fileLocation == false && dataType(settings.data) == "String")))
+	{ 
 		settings.data = removeStopWords(settings.data);	
 	}
-	if(settings.readFromFile.fileLocation == false || settings.readFromFile.type == "text"){
+	if((settings.readFromFile.fileLocation == false && dataType(settings.data) == "String") ||(settings.readFromFile.fileLocation!=false && settings.readFromFile.type == "text" )){
 		settings.data = wordFrequency(settings.data);
+	}else if(settings.readFromFile.fileLocation == false && dataType(settings.data) == "Array"){
+
 	}else{
 		settings.data =JSON.parse(settings.data);
 	}
