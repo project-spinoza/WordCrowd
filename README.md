@@ -82,7 +82,7 @@ This is a <a href="http://wordcram.org/">WordCram</a>-inspired WordCrowd layout 
 <p>we can give text and json file by specifing the `type:text` or `type:json` option in `readFromFile:{
 	    	type:"text",
 	    	fileLocation:false
-	    }` and the n giving the path of the file in `fileLocation:"your file path"`</p>
+	    }` and then giving the path of the file in `fileLocation:"your file path"`</p>
 <p>default value `readFromFile:{
 	    	type:"text",
 	    	fileLocation:false
