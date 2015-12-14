@@ -44,45 +44,51 @@ This is a <a href="http://wordcram.org/">WordCram</a>-inspired WordCrowd layout 
 <p>default value `"white" `</p>
 <p>`background :"white"` </p>
 * <b>fontsize_range</b>
-<p>The sizes of words. words of higher frequency get maximum font-size and lower frequency get minimum font-size. </p>
+<p>size of words in proportional to their relative frequency. words with high relative frequency get larger font size compared to those with lower relative frequency. </p>
 <p>default value `{ min : 12, max : 36 } `</p>
 <p>`fontsize_range : { min : 12, max : 36 }` </p>
 * <b>hover_color</b>
-<p>Mouse hover color of words in Wordcrowd.</p>
+<p>hover color of words in Wordcrowd.</p>
 <p>default value `"#000000"`</p>
 <p>`hover_color :"#000000"` </p>
 * <b>colors</b>
-<p>Words color. 'random' refers to a function that randomly give colors to words.</p>
+<p>"random" will assign random color to each word.</p>
 <p>default value `"random"`</p>
 <p>`colors:"random" ` </p>
-<p>we can also give specific color for all text </p>
-<p>`colors:"#000000" ` </p>
+<p> Specified color can be assigned to each word like "#000" will assign each word black color.</p>
+<p>To color black each word in cloud:`colors:"#000000" ` </p>
 * <b>collision</b>
-<p>Maximum number of replace tries of a word to avoid collision.</p>
-<p>'min'Minimum number of replace tries of a word to avoid collision.</p>
-<p>'max'Maximum number of replace tries of a word to avoid collision.</p>
+  <p>number of iterations before a word is placed in specified container.</p>
+
+<p>'min'Minimum number of iterations before a word is placed in specified container.</p>
+<p>'max'Maximum number of iterations before a word is placed in specified container.</p>
 <p>default value `min:500,max:1000`</p>
 <p>`collision:{
 			min:500,
 			max:1000
 		}` </p>
 * <b>sortDescending</b>
-  <p>sortDescending is use to sort our data descendingly.we can enable this by making  `sortDescending:true`</p>
+  <p>specifies the order in which words will be arranged in container based on their relative frequency.</p>
   <p>default value `sortDescending:false`</p>
 * <b>angles</b> 
-<p>Array of angles to which words rotates. angles should be between 0 and 360.</p>
+<p>list of angles each word can take to rotate. Each angle must be between 0 and 360.</p>
 <p>default value `[0,90] `</p>
 <p>`angles : [0,90] `</p>
 * <b>font_families</b>
-<p>Array of font families which will assign to words randomly.</p>
+<p>list of available font-families.</p>
 <p>default value `[ "Verdana", "Arial"]`</p>
 <p>`font_families:[ "Verdana", "Arial"]`</p>
 * <b>readFromFile</b>
-<p>we can also give our data from file by giving the path of the file.</p>
-<p>we can give text and json file by specifing the `type:text` or `type:json` option in `readFromFile:{
+<p>path to external data file.</p>
+<p>data format must be specified in configuration options.</p>
+<p>json format: `readFromFile:{
+	    	type:"json",
+	    	fileLocation:'json file location'
+	    }`</p>
+<p>text format: `readFromFile:{
 	    	type:"text",
-	    	fileLocation:false
-	    }` and then giving the path of the file in `fileLocation:"your file path"`</p>
+	    	fileLocation:'text file location'
+	    }`</p>
 <p>default value `readFromFile:{
 	    	type:"text",
 	    	fileLocation:false
